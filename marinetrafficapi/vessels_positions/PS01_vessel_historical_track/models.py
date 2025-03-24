@@ -1,6 +1,5 @@
 from marinetrafficapi.models import Model
-from marinetrafficapi.fields import NumberField, RealNumberField, DatetimeField
-
+from marinetrafficapi.fields import NumberField, RealNumberField, DatetimeField, TextField
 
 class VesselHistoricalPosition(Model):
     """Get all vessel historical positions for a specific period of time."""
@@ -52,6 +51,9 @@ class VesselHistoricalPosition(Model):
     ship_id = NumberField(index='SHIP_ID',
                           desc="A uniquely assigned ID by MarineTraffic \n"
                                "for the subject vessel")
+    
+    imo = TextField(index='IMO',
+                          desc="A uniquely assigned ID by the IMO")
 
     wind_angle = NumberField(index='WIND_ANGLE',
                              desc="The current angle of the wind in the \n"
@@ -65,3 +67,23 @@ class VesselHistoricalPosition(Model):
     wind_temp = NumberField(index='WIND_TEMP',
                             desc="The current temperature of the wind in \n"
                                  "the subject area (in Celsius degrees)")
+    
+    sig_wave = NumberField(index='SIGNIFICANT_WAVE_HEIGHT',
+                            desc="Significant wave height in the subject area (in meters)")
+    
+    swell_height = NumberField(index='SWELL_HEIGHT',
+                            desc="Swell height in the subject area (in meters)")
+    
+    swell_period = NumberField(index='SWELL_PERIOD',
+                            desc="Swell period in the subject area (in seconds)")
+    
+    swell_direction = NumberField(index='SWELL_DIRECTION',
+                            desc="Swell direction in the subject area (in degrees)")
+    
+    currents_angle = NumberField(index='CURRENTS_ANGLE',
+                            desc="Currents angle in the subject area (in degrees)")
+    
+    currents_speed = NumberField(index='CURRENTS_SPEED',
+                            desc="Currents speed in the subject area (in knots)")
+    
+    
